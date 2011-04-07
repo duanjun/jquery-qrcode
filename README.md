@@ -1,12 +1,12 @@
 # jquery.qrcode.js
 
-<a href='http://jeromeetienne.github.com/jquery-qrcode'>jquery.qrcode.js</a>
+<a href='http://imbcmdth.github.com/jquery-qrcode'>jquery.qrcode.js</a>
 is *jquery plugin for a pure browser qrcode generation*.
 It allow you to easily add qrcode to your webpages.
 It is standalone, less than 4k after minify+gzip, no image download.
 It doesnt rely on external services which go on and off, or add latency while loading.
 It is based on a <a href='http://www.d-project.com/qrcode/index.html'>library</a>
-which build qrcode in various language. <a href='http://jeromeetienne.github.com/jquery-qrcode'>jquery.qrcode.js</a> wraps
+which build qrcode in various language. <a href='http://imbcmdth.github.com/jquery-qrcode'>jquery.qrcode.js</a> wraps
 it to make it easy to include in your own code.
 
 Show, dont tell, here is a <a href='examples/basic.html'>example</a>
@@ -29,8 +29,8 @@ Then you add the *qrcode* in this container by
 This is it. see it <a href='examples/basic.html'>live</a>.
 
 ## Conclusion
-<a href='http://jeromeetienne.github.com/jquery-qrcode'>jquery.qrcode.js</a> is available on github
-<a href='https://github.com/jeromeetienne/jquery-qrcode'>here</a>
-under <a href='https://github.com/jeromeetienne/jquery-qrcode/blob/master/MIT-LICENSE.txt'>MIT license</a>.
+<a href='http://imbcmdth.github.com/jquery-qrcode'>jquery.qrcode.js</a> is available on github
+<a href='https://github.com/imbcmdth/jquery-qrcode'>here</a>
+under <a href='https://github.com/imbcmdth/jquery-qrcode/blob/master/MIT-LICENSE.txt'>MIT license</a>.
 If you hit bugs, fill issues on github.
 Feel free to fork, modify and have fun with it :)
