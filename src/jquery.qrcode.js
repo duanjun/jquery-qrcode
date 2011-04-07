@@ -13,32 +13,43 @@
 			correctLevel	: QRErrorCorrectLevel.H
 		}, options);
 
-		var createCanvas	= function(){
+		var createTable	= function(){
 			// create the qrcode itself
 			var qrcode	= new QRCode(options.typeNumber, options.correctLevel);
+			var $table, $row, $col;
+			var row, col;
+			var tileS;
+			var border_width = (options.width + options.height) / 20;
+      
 			qrcode.addData(options.text);
 			qrcode.make();
-			// create canvas element
-			var canvas	= document.createElement('canvas');
-			canvas.width	= options.width;
-			canvas.height	= options.height;
-			var ctx		= canvas.getContext('2d');
+			
+			// create table element
+			$table	= $('<table></table>');
+			$table.css("width", options.width+"px");
+			$table.css("height", options.height+"px");
+			$table.css("border", "0px");
+			$table.css("border-collapse", "collapse");
+			$table.css("margin", border_width+"px");
+			$table.css('background-color', "#ffffff");
+		  
 			// compute tileW/tileH based on options.width/options.height
-			var tileW	= options.width  / qrcode.getModuleCount();
-			var tileH	= options.height / qrcode.getModuleCount();
+			tileS	= 100 / qrcode.getModuleCount();
+
 			// draw in the canvas
-			for( var row = 0; row < qrcode.getModuleCount(); row++ ){
-				for( var col = 0; col < qrcode.getModuleCount(); col++ ){
-					ctx.fillStyle = qrcode.isDark(row, col) ? "#000000" : "#ffffff";
-					ctx.fillRect( col*tileW, row*tileH, tileW, tileH );  
+			for(row = 0; row < qrcode.getModuleCount(); row++ ){
+				$row = $('<tr></tr>').css('height', tileS+"%").appendTo($table);
+				for(col = 0; col < qrcode.getModuleCount(); col++ ){
+  				$col = $('<td></td>').css('width', tileS+"%").appendTo($row);
+	  			$col.css('background-color', qrcode.isDark(row, col) ? "#000000" : "#ffffff");
 				}	
 			}
 			// return just built canvas
-			return canvas;
+			return $table;
 		}
-
+  
 		return this.each(function(){
-			var canvas	= createCanvas();
+			var canvas	= createTable();
 			jQuery(canvas).appendTo(this);
 		});
 	};
